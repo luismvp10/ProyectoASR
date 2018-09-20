@@ -1,5 +1,6 @@
 import time
 from Agente import Agente
+from rrd2 import *
 
 numAgentes = 0
 lista_agentes = []	
@@ -24,6 +25,7 @@ while True:
 		puerto = input("Puerto: ")
 		comunidad = raw_input("Comunidad: ")
 		indice = 0
+		print(indice)
 		lista_agentes.append(Agente(indice, hn, v, ip, puerto, comunidad)) 	
 		print(lista_agentes[0].getComunidad())		
 		if numAgentes >= 1:
@@ -33,6 +35,7 @@ while True:
 	
 	elif opc == 2:
 		print("Visualizar")
+			
 
 	elif opc == 3:
 		print("Eliminar agente")
