@@ -19,6 +19,7 @@ while True:
 
 	if opc == 1:
 		print("Agregar Agente\n")
+		id1 = numAgentes
 		hn = raw_input()	
 		v = input("snmpVersion: ")
 		ip = raw_input("IP: ")
@@ -26,7 +27,7 @@ while True:
 		comunidad = raw_input("Comunidad: ")
 		indice = 0
 		print(indice)
-		lista_agentes.append(Agente(indice, hn, v, ip, puerto, comunidad)) 	
+		lista_agentes.append(Agente(id1, indice, hn, v, ip, puerto, comunidad)) 	
 		print(lista_agentes[0].getComunidad())		
 		if numAgentes >= 1:
                 	print(lista_agentes[1].getComunidad())
@@ -35,7 +36,11 @@ while True:
 	
 	elif opc == 2:
 		print("Visualizar")
-			
+		cont = 0
+		while cont < len(lista_agentes):			
+			print(str(lista_agentes[cont].getId()) + " " + str(lista_agentes[cont].getIp()))
+			print("\n")
+			cont = cont + 1
 
 	elif opc == 3:
 		print("Eliminar agente")
