@@ -11,11 +11,9 @@ def validarEstadoAgente(comunidad,ip):
 	estado=int(consultaSNMP(comunidad, ip, '1.3.6.1.2.1.2.2.1.7.2'))
 	return estado
 	
-def num_dispo():
-	num_dispo1_monotorizados = 0
-	num_dispo2_monotorizados = 0
-	num_dispo_monotorizados = int(consultaSNMP('Fer','localhost','1.3.6.1.2.1.2.2.1.10.3'))
-	return num_dispo_monotorizados
+def status(comunidad, ip):
+	indice = int(consultaSNMP(comunidad,ip,'1.3.6.1.2.1.2.2.1.8.2'))
+	return indice
 
 def getIndiceInterfaz(comunidad, ip):
 	indice = consultaSNMP(comunidad, ip, '1.3.6.1.2.1.4.20.1.2' +ip)

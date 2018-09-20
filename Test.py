@@ -39,7 +39,11 @@ while True:
 		cont = 0
 		while cont < len(lista_agentes):			
 			print(str(lista_agentes[cont].getId()) + " " + str(lista_agentes[cont].getIp()))
-			print("\n")
+			if status(lista_agentes[cont].getComunidad()) == 1:
+				print("Status: up")
+			else: 
+				print("Status: down")
+			#print(str(status(lista_agentes[cont].getComunidad(),lista_agentes[cont].getIp())))
 			cont = cont + 1
 
 	elif opc == 3:
