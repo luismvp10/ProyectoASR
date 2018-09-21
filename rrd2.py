@@ -1,5 +1,6 @@
 import time
 import rrdtool
+
 from getSNMP import consultaSNMP
 
 
