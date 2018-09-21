@@ -18,6 +18,15 @@ def status(comunidad, ip):
 def getIndiceInterfaz(comunidad, ip):
 	indice = consultaSNMP(comunidad, ip, '1.3.6.1.2.1.4.20.1.2' +ip)
 	return indice 
+
+def getNumInterfacesRed(comunidad, ip):
+	indice = consultaSNMP(comunidad, ip, '1.3.6.1.2.1.2.1.0')
+	return indice
+
+def statusInterfaces(comunidad, ip):
+	indice = consultaSNMP(comunidad, ip, '1.3.6.1.2.1.2.2.1.7.2')
+	return indice	
+	
 """
 status1_connect = 0;
 status_connect2 = 0;

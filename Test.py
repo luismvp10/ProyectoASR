@@ -5,10 +5,10 @@ from rrd2 import *
 numAgentes = 0
 lista_agentes = []	
 	 
-print("Bienvenido a la calculadora")
+print("Bienvenido a observium_patito")
 
 while True:
-	print("Dispositivos monitoreados: "+ str(numAgentes)+"\n")
+	print("\nDispositivos monitoreados: "+ str(numAgentes)+"\n")
 	print("Estas son las operaciones que puedes realizar")
 	print("1.-Agregsar agente")
 	print("2.-Visualizar agentes")
@@ -37,18 +37,29 @@ while True:
 	elif opc == 2:
 		print("Visualizar")
 		cont = 0
-		while cont < len(lista_agentes):			
-			print(str(lista_agentes[cont].getId()) + " " + str(lista_agentes[cont].getIp()))
-			if status(lista_agentes[cont].getComunidad()) == 1:
-				print("Status: up")
-			else: 
-				print("Status: down")
-			#print(str(status(lista_agentes[cont].getComunidad(),lista_agentes[cont].getIp())))
-			cont = cont + 1
+		if len(lista_agentes) == 0:
+			print("Nada que visualizar")
+		else:
+			while cont < len(lista_agentes):			
+				print(str(lista_agentes[cont].getHostName()) + " " + str(lista_agentes[cont].getId()) + " " + str(lista_agentes[cont].getIp()))
+				if status(lista_agentes[cont].getComunidad(),lista_agentes[cont].getIp()) == 1:
+					print("Status connection: up")
+				else: 
+					print("Status connection: down")
+			
+				if statusInterfaces(lista_agentes[cont].getComunidad(),lista_agentes[cont].getIp()) == 1:
+					print("Status interface: up")
+				else: 
+					print("Status interface: down")
+				num = int(getNumInterfacesRed(lista_agentes[cont].getComunidad(),lista_agentes[cont].getIp()))
+				print("Interfaces red disponibles: " + str(num))
+				#print(str(status(lista_agentes[cont].getComunidad(),lista_agentes[cont].getIp())))
+				cont = cont + 1
 
 	elif opc == 3:
 		print("Eliminar agente")
-
+		indi = input("Ingresa indice de agente a eliminar")
+		lista_agentes.pop(indi)
 	elif opc == 4: 
 		print("Estado de dispositivo")
 
