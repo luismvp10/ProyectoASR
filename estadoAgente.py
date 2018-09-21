@@ -34,3 +34,11 @@ def getCompleteTime(nums):
     seg = num - ((hor * 3600) + (minu * 60))
     res= str(hor) + "h " + str(minu) + "m " + str(seg) + "s"
     return res
+
+
+def getIndexInterface(comunidad,ip):
+    oid= '1.3.6.1.2.1.4.20.1.2.'+str(ip)
+    print("OID: "+str(oid))
+    index = consultaSNMP(comunidad, ip, oid)
+    print("INDEX" +str(index))
+    return  index

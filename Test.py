@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import time
 from Agente import Agente
 from estadoAgente import *
@@ -6,7 +7,7 @@ import os
 import time
 
 numAgentes = 0
-lista_agentes = []	
+lista_agentes = []
 print("\n")
 print("Bienvenido a observium_patito")
 
@@ -32,7 +33,7 @@ while True:
         ip = raw_input("IP: ")
         puerto = input("Puerto: ")
         comunidad = raw_input("Comunidad: ")
-        indice = 0
+        indice = getIndexInterface(comunidad,ip)
         print(indice)
         lista_agentes.append(Agente(id1, indice, hn, v, ip, puerto, comunidad))
         print(lista_agentes[0].getComunidad())
@@ -78,6 +79,7 @@ while True:
     elif opc == 4:
             os.system('clear')
             print("Estado de dispositivos")
+            print("\n")
             #print("ID  -- Hostname  -- IP")
 
             i = 0
@@ -108,8 +110,33 @@ while True:
 
 
     elif opc == 5:
-        os.system('clear')
-        print("Graficas")
+            os.system('clear')
+            print("Graficas")
+            print("1.-Tráfico de Interfaz (I/O)")
+            print("2.-Estádisticas de paquetes ipv4 (I/O)")
+            print("3.-Estádisticas ICMP (I/O)")
+            print("4.-Estádisticas IP (I/O)")
+            print("5.-Estádisticas  de paquetes SNMP (I/O)")
+            opcGraph =int(raw_input("Cuál desea visualizar? :"))
+            id = input("ID del agente: ")
+            if opcGraph == 1:
+                print("Gráfica 1")
+            elif opcGraph == 2:
+                print("Gráfica 2")
+            elif opcGraph == 3:
+                print("Gráfica 3")
+            elif opcGraph == 4:
+                print("Gráfica 4")
+            elif opcGraph == 5:
+                print("Gráfica 5")
+            else:
+                print("Opción inválida")
+
+
+
+
+
+
 
     else:
         print("Hasta luego! :'(")
