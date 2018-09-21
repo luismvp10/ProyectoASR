@@ -1,5 +1,6 @@
 class Agente:
-	def __init__(self, index, hostName, snmpVersion, ipAgente, puerto, comunidad):
+	def __init__(self, id1, index, hostName, snmpVersion, ipAgente, puerto, comunidad):
+		self.id1=id1
 		self.index = index
 		self.hostName = hostName
 		self.snmpVersion = snmpVersion
@@ -22,6 +23,9 @@ class Agente:
 	def ingresarComunidad(community):
 		comunidad = community
 
+	def setId(id2):
+		id1 = id2
+
 	def getHostName(self):
 		return self.hostName 
 
@@ -39,5 +43,8 @@ class Agente:
 
 	def getIndex(self):
 		return self.index
+	
+	def getId(self):
+		return self.id1
 
 
